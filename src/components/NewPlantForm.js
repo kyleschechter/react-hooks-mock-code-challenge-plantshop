@@ -5,7 +5,6 @@ function NewPlantForm({ handleNewPlant }) {
  const onNewPlant = (e) => {
    e.preventDefault()
    handleNewPlant(e)
-   e.target.reset()
  }
 
   return (

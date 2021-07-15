@@ -7,12 +7,6 @@
       "price": 79.98
     },
     {
-      "id": 2,
-      "name": "ZZ Plant",
-      "image": "./images/zz-plant.jpg",
-      "price": 112.97
-    },
-    {
       "id": 4,
       "name": "Pothos",
       "image": "./images/pothos.jpg",

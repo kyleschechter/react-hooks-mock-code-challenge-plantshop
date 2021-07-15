@@ -31,7 +31,7 @@ function PlantCard({ id, name, image, price, onDelete }) {
   return (
     <li className="card">
       <img src={image} alt={name}/>
-      <h4>{name} <span style={{ fontSize: "12px" }} onClick={onDelete}>❌</span></h4>
+      <h4>{name} <span style={{ fontSize: "12px" }} onClick={onDelete}>🗑</span></h4>
       <div>
         <p>Price: ${newPrice}</p>
         <button onClick={handleChangePrice}>+</button> <button onClick={handleChangePrice}>-</button>

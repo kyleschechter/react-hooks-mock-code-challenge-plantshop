@@ -29,9 +29,16 @@ function PlantPage() {
         price: e.target.price.value
       }) 
     }
-    fetch(api, configObj)
-    .then(r => r.json())
-    .then(data => setPlantsList([...plantsList, data]))
+    if (e.target.name.value === "" || e.target.image.value === "" || e.target.price.value === "") {
+      alert("Make sure you have a Name, Image URL and Price before submitting a new plant!")
+    } else {
+      fetch(api, configObj)
+      .then(r => r.json())
+      .then(data => {
+        setPlantsList([...plantsList, data])
+        e.target.reset()
+      })
+    }
   }
 
 
