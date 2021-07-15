@@ -60,7 +60,7 @@ function PlantPage() {
   return (
     <main>
       <NewPlantForm handleNewPlant={handleNewPlant}/>
-      <Search setSearch={setSearch}/>
+      <Search search={search} setSearch={setSearch}/>
       <PlantList plantsList={filteredPlants} handleDelete={handleDelete}/>
     </main>
   );
