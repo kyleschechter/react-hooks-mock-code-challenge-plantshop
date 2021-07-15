@@ -16,8 +16,8 @@ function PlantPage() {
     })
   }, [])
 
-  const handleNewPlant = (e) => {
 
+  const handleNewPlant = (e) => {
     const configObj = {
       method: "POST",
       headers: {
@@ -29,11 +29,20 @@ function PlantPage() {
         price: e.target.price.value
       }) 
     }
-
     fetch(api, configObj)
     .then(r => r.json())
     .then(data => setPlantsList([...plantsList, data]))
   }
+
+
+  const handleDelete = (iD) => {
+    fetch(`${api}/${iD}`, { method: "DELETE" })
+    .then(() => {
+      const updatedPlants = plantsList.filter(plant => plant.id !== iD)
+      setPlantsList(updatedPlants)
+    })
+  }
+  
 
   const filteredPlants = plantsList.filter(plant => {
     if (search === "") return true
@@ -43,9 +52,9 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm onNewPlant={handleNewPlant}/>
+      <NewPlantForm handleNewPlant={handleNewPlant}/>
       <Search setSearch={setSearch}/>
-      <PlantList plantsList={filteredPlants}/>
+      <PlantList plantsList={filteredPlants} handleDelete={handleDelete}/>
     </main>
   );
 }
